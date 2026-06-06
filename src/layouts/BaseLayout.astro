@@ -1,0 +1,45 @@
+---
+import '../styles/global.css';
+import { analyticsConfig } from '../data/analytics';
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+const { googleAnalyticsId, umami } = analyticsConfig;
+---
+
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📝</text></svg>" />
+    <title>{title}</title>
+    <meta name="description" content="100天写作计划" />
+
+    {googleAnalyticsId && (
+      <>
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`}></script>
+        <script define:vars={{ id: googleAnalyticsId }}>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', id);
+        </script>
+      </>
+    )}
+
+    {umami.websiteId && (
+      <script
+        defer
+        src={umami.src}
+        data-website-id={umami.websiteId}
+      ></script>
+    )}
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
