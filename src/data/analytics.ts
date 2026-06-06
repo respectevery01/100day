@@ -4,7 +4,7 @@ export const analyticsConfig = {
 
   // Umami - 网站 ID 和脚本地址
   umami: {
-    websiteId: '',
-    src: 'https://cloud.umami.is/script.js', // 可替换为自建 Umami 地址
+    websiteId: '770240a6-ffb4-4499-a786-b1896bc1bb06',
+    src: 'https://www.wyt.icu/script.js', // 可替换为自建 Umami 地址
   },
 };
