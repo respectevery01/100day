@@ -29,7 +29,51 @@ body {
 .notion-title {
   font-size: 32px;
   font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.toolbar {
+  display: flex;
+  gap: 8px;
   margin-bottom: 24px;
+}
+
+.search-input {
+  flex: 1;
+  padding: 8px 12px;
+  font-size: 14px;
+  border: 1px solid var(--notion-border);
+  border-radius: 4px;
+  background: var(--notion-bg);
+  color: var(--notion-text);
+  font-family: var(--notion-font);
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.search-input:focus {
+  border-color: var(--notion-blue);
+}
+
+.search-input::placeholder {
+  color: var(--notion-text-light);
+}
+
+.sort-btn {
+  padding: 8px 14px;
+  font-size: 13px;
+  border: 1px solid var(--notion-border);
+  border-radius: 4px;
+  background: var(--notion-bg);
+  color: var(--notion-text);
+  cursor: pointer;
+  font-family: var(--notion-font);
+  white-space: nowrap;
+  transition: background 0.1s;
+}
+
+.sort-btn:hover {
+  background: var(--notion-hover-bg);
 }
 
 .page-layout {

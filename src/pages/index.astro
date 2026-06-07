@@ -13,11 +13,23 @@ const completedDays = days.filter(isCompleted);
   <div class="notion-page">
     <h1 class="notion-title">100 Day</h1>
 
+    <div class="toolbar">
+      <input
+        type="text"
+        id="search-input"
+        class="search-input"
+        placeholder="搜索文章..."
+      />
+      <button id="sort-btn" class="sort-btn" title="切换排序">
+        ↓ 最新
+      </button>
+    </div>
+
     <div class="page-layout">
       <div class="main-content">
-        <div class="day-list">
+        <div class="day-list" id="day-list">
           {completedDays.map((day) => (
-            <div class="day-item">
+            <div class="day-item" data-day={day.day} data-title={day.title.toLowerCase()}>
               <span class="day-title">Day {day.day} · {day.title}</span>
               <div class="day-links">
                 {day.blogUrl && (
@@ -64,3 +76,49 @@ const completedDays = days.filter(isCompleted);
     </footer>
   </div>
 </BaseLayout>
+
+<script>
+  const dayList = document.getElementById('day-list')!;
+  const searchInput = document.getElementById('search-input')! as HTMLInputElement;
+  const sortBtn = document.getElementById('sort-btn')!;
+
+  let ascending = false;
+  const items = Array.from(dayList.querySelectorAll('.day-item'));
+
+  // 排序
+  function sortList() {
+    const sorted = [...items].sort((a, b) => {
+      const dayA = parseInt(a.dataset.day!);
+      const dayB = parseInt(b.dataset.day!);
+      return ascending ? dayA - dayB : dayB - dayA;
+    });
+
+    dayList.innerHTML = '';
+    sorted.forEach(item => dayList.appendChild(item));
+
+    sortBtn.textContent = ascending ? '↑ 最早' : '↓ 最新';
+  }
+
+  sortBtn.addEventListener('click', () => {
+    ascending = !ascending;
+    sortList();
+    applySearch();
+  });
+
+  // 初始排序
+  sortList();
+
+  // 搜索
+  function applySearch() {
+    const query = searchInput.value.toLowerCase().trim();
+
+    items.forEach(item => {
+      const title = item.dataset.title!;
+      const day = item.dataset.day!;
+      const match = !query || title.includes(query) || day.includes(query);
+      item.style.display = match ? '' : 'none';
+    });
+  }
+
+  searchInput.addEventListener('input', applySearch);
+</script>

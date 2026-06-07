@@ -5,7 +5,7 @@ export type SocialLink = {
 };
 
 export const footerConfig = {
-  copyright: '© 2026 jask. All rights reserved.',
+  copyright: '© 2026 Jask. All rights reserved.',
   socials: [
     { name: 'Twitter', url: 'https://x.com/jask_don' },
     { name: 'Blog', url: 'https://blog.jask.dev' },
