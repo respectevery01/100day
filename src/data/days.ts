@@ -22,8 +22,7 @@ export type DayEntry = {
  */
 export const days: DayEntry[] = [
   { day: 1, title: '一家公司的非共识豪赌：A16z', twitterUrl: 'https://x.com/jask_don/status/2063154696953688260', blogUrl: 'https://blog.jask.dev/posts/company-non-consensus-gamble-a16z/' },
-  { day: 2, title: '待完成' },
-  { day: 3, title: '待完成' },
+  { day: 2, title: 'SpaceX：赌局与帝国', twitterUrl: 'https://x.com/jask_don/status/2063613850159563097', blogUrl: 'https://blog.jask.dev/posts/spacex-gamble-and-empire/' },
   { day: 4, title: '待完成' },
   { day: 5, title: '待完成' },
   { day: 6, title: '待完成' },
