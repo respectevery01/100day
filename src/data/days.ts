@@ -23,7 +23,7 @@ export type DayEntry = {
 export const days: DayEntry[] = [
   { day: 1, title: '一家公司的非共识豪赌：A16z', twitterUrl: 'https://x.com/jask_don/status/2063154696953688260', blogUrl: 'https://blog.jask.dev/posts/company-non-consensus-gamble-a16z/' },
   { day: 2, title: 'SpaceX：赌局与帝国', twitterUrl: 'https://x.com/jask_don/status/2063613850159563097', blogUrl: 'https://blog.jask.dev/posts/spacex-gamble-and-empire/' },
-  { day: 4, title: '待完成' },
+  { day: 3, title: 'YZi Labs 前世今生：从 Binance Labs 到百亿资产跨行业巨头的战略跃迁', twitterUrl: 'https://x.com/jask_don/status/2063892475295736251', blogUrl: 'https://blog.jask.dev/posts/binance-to-yzilabs/' },
   { day: 5, title: '待完成' },
   { day: 6, title: '待完成' },
   { day: 7, title: '待完成' },
